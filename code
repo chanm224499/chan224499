@@ -1,0 +1,48 @@
+package lab07;
+
+
+import java.util.*;
+public class Lab7_8 {
+	//生成一副扑克牌:4种花色,每种13张,包含"小王"、"大王"，共计54张
+	public static List<String> getCards() {
+		ArrayList<String> list = new ArrayList<String>();
+		String[] hs = { "黑桃", "红桃", "梅花", "方块" };
+		for (int i = 0; i < 4; i++) {
+			for (int j = 2; j <= 10; j++) {
+			list.add(hs[i] + j);
+			}	
+				list.add(hs[i] + "A");
+				list.add(hs[i] + "J");
+				list.add(hs[i] + "Q");
+				list.add(hs[i] + "K");
+		}
+		list.add("大王");
+		list.add("小王");
+		return list;	
+	}
+	
+//利用Collections类的相关方法实现随机发牌功能，第1个参数存储的是一副完整的扑克牌，第2个参数存放各玩家应得扑克牌张数
+	public static void dealCards(List<String> cards, int[] group) {
+		System.out.println("随机分派扑克牌:");
+		Collections.shuffle(cards);
+		List<String> l1, l2, l3, l4, l5 = new ArrayList<String>();
+		int n = group[0];
+		l1 = cards.subList(0, n);
+		l2 = cards.subList(n, n += group[1]);
+		l3 = cards.subList(n, n += group[2]);
+		l4 = cards.subList(n, n += group[3]);
+		l5 = cards.subList(n, 52);
+		System.out.println("第1个玩家的牌：" + l1);
+		System.out.println("第2个玩家的牌：" + l2);
+		System.out.println("第3个玩家的牌：" + l3);
+		System.out.println("第4个玩家的牌：" + l4);
+		System.out.println("庄家的底牌：" + l5);
+	}
+	
+
+	public static void main(String[] args) {
+		List<String> cards = getCards();
+		int[] group = { 12, 12, 12, 12 };
+		dealCards(cards, group);
+	}
+}
