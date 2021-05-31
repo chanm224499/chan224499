@@ -1,0 +1,48 @@
+package lab07;
+
+import java.util.*;
+
+public class RandomTest {
+	public static void main(String[] args) {
+		List<Integer> ran = new ArrayList<Integer>();
+		// 给中奖的40位员工赋随机(1—100之间的)数字
+		// 记录有效随机数字
+		for (int i = 0; i < 100; i++) {
+			ran.add(i);
+		}
+		Collections.shuffle(ran);
+		int winners_total[] = new int[40];
+		for (int j = 0; j < 40; j++) {
+			winners_total[j] = ran.get(j);
+		}
+		// 用for循环分别输出获得N等奖的员工号
+		// 输出获得幸运奖的20名员工
+		System.out.println("获得幸运奖的20名员工分别是:");
+		for (int a = 0; a < 20; a++) {
+			String strLucky = String.format("%04d", winners_total[a]);
+			System.out.println(strLucky);
+		}
+		// 输出获得三等奖的10名员
+		System.out.println("获得三等奖的10名员工分别是:");
+		for (int b = 20; b < 30; b++) {
+			String strThree = String.format("%04d", winners_total[b]);
+			System.out.println(strThree);
+		}
+		// 输出获得二等奖的7名员工
+		System.out.println("获得二等奖的7名员工分别是:");
+		for (int c = 30; c < 37; c++) {
+			String strTwo = String.format("%04d", winners_total[c]);
+			System.out.println(strTwo);
+		}
+		// 输出获得一等奖的2名员工
+		System.out.println("获得一等奖的2名员工分别是:");
+		for (int d = 37; d < 39; d++) {
+			String strOne = String.format("%04d", winners_total[d]);
+			System.out.println(strOne);
+		}
+		// 输出获得特等奖的1名员工
+		System.out.println("获得特等奖的1名员工分别是:");
+		String strSuper = String.format("%04d", winners_total[39]);
+		System.out.println(strSuper);
+	}
+}
