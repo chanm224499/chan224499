@@ -1,0 +1,13 @@
+dist
+coverage
+node_modules
+.env
+.env.test
+.env.development
+.vscode/**
+.DS_Store
+tools/node_modules
+
+# HardHat
+artifacts
+cache
